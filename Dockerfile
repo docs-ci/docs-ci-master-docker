@@ -31,7 +31,7 @@ RUN $CONDA_DIR/bin/conda config --add channels conda-forge --system
 RUN $CONDA_DIR/bin/conda config --add channels gcomoretto --system
 
 # Install docsteady
-RUN conda install docsteady
+RUN $CONDA_DIR/bin/conda install docsteady
 
 WORKDIR /var/jenkins_home
 USER jenkins
