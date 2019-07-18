@@ -33,5 +33,9 @@ RUN $CONDA_DIR/bin/conda config --add channels gcomoretto --system
 # Install docsteady
 RUN $CONDA_DIR/bin/conda install docsteady
 
+# Adding conda and python to the bin
+RUN ln -sf $CONDA_DIR/bin/conda /usr/bin/conda
+RUN ln -sf /usr/local/bin/python3 /usr/bin/python
+
 WORKDIR /var/jenkins_home
 USER jenkins
