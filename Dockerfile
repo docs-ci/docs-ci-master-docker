@@ -30,7 +30,7 @@ RUN $CONDA_DIR/bin/conda config --add channels conda-forge --system
 RUN $CONDA_DIR/bin/conda config --add channels gcomoretto --system
 
 # Install docsteady
-RUN $CONDA_DIR/bin/conda install docsteady=1.2.rc5
+RUN $CONDA_DIR/bin/conda install docsteady=1.2rc2_55_g044fd29
 
 # Adding conda bin tot he path
 ENV PATH /opt/conda/bin:$PATH
