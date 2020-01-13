@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.176.2
+FROM jenkins/jenkins:2.204.1
 
 # Plugins for better UX 
 RUN /usr/local/bin/install-plugins.sh ansicolor
@@ -30,7 +30,7 @@ RUN $CONDA_DIR/bin/conda config --add channels conda-forge --system
 RUN $CONDA_DIR/bin/conda config --add channels gcomoretto --system
 
 # Install docsteady
-RUN $CONDA_DIR/bin/conda install docsteady=1.2rc7_0_g09f601e
+RUN $CONDA_DIR/bin/conda install docsteady=1.2rc8_1_g126395f
 
 # Adding conda bin tot he path
 ENV PATH /opt/conda/bin:$PATH
