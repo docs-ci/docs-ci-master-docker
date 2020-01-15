@@ -18,7 +18,7 @@ USER root
 
 ARG CONDA_DIR="/opt/conda"
 ARG MIN_VER="4.7.10"
-ARG DS_VER="1.2rc8_3_g21842e2"
+ARG DS_VER="1.2rc8_7_g753a106"
 
 # Install Miniconda
 RUN mkdir /tmp/miniconda
