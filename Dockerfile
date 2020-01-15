@@ -17,22 +17,25 @@ RUN /usr/local/bin/install-plugins.sh slack
 USER root
 
 ARG CONDA_DIR="/opt/conda"
+ARG MIN_VER="4.7.10"
+ARG DS_VER="1.2rc8_3_g21842e2"
 
 # Install Miniconda
 RUN mkdir /tmp/miniconda
 WORKDIR /tmp/miniconda
-RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-RUN chmod +x Miniconda3-latest-Linux-x86_64.sh
-RUN ./Miniconda3-latest-Linux-x86_64.sh -b -p $CONDA_DIR
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-${MIN_VER}-Linux-x86_64.sh
+RUN chmod +x Miniconda3-${MIN_VER}-Linux-x86_64.sh
+RUN ./Miniconda3-${MIN_VER}-Linux-x86_64.sh -b -p ${CONDA_DIR}
 
 # Add channels
-RUN $CONDA_DIR/bin/conda config --add channels conda-forge --system
-RUN $CONDA_DIR/bin/conda config --add channels gcomoretto --system
+RUN ${CONDA_DIR}/bin/conda config --add channels defaults --system
+RUN ${CONDA_DIR}/bin/conda config --add channels gcomoretto --system
+#RUN $CONDA_DIR/bin/conda config --add channels conda-forge --system
 
 # Install docsteady
-RUN $CONDA_DIR/bin/conda install docsteady=1.2rc8_1_g126395f
+RUN $CONDA_DIR/bin/conda install docsteady=${DS_VER}
 
-# Adding conda bin tot he path
+# Adding conda bin to the path
 ENV PATH /opt/conda/bin:$PATH
 RUN conda init bash
 
