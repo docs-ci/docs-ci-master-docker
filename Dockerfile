@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.204.1
+FROM jenkins/jenkins:2.222.3
 
 # Plugins for better UX 
 RUN /usr/local/bin/install-plugins.sh ansicolor
@@ -18,7 +18,7 @@ USER root
 
 ARG CONDA_DIR="/opt/conda"
 ARG MIN_VER="4.7.10"
-ARG DS_VER="1.2.rc9_0_g84a5534"
+ARG DS_VER="1.2.rc10_1_g1a75e2a"
 
 # Install Miniconda
 RUN mkdir /tmp/miniconda
