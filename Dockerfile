@@ -10,14 +10,32 @@ RUN /usr/local/bin/install-plugins.sh email-ext
 RUN /usr/local/bin/install-plugins.sh mailer
 RUN /usr/local/bin/install-plugins.sh slack
 
-
 # Plugin for scaling Jenkins agents
 #RUN /usr/local/bin/install-plugins.sh kubernetes
 
+# installing other plugins
+RUN /usr/local/bin/install-plugins.sh job-dsl
+RUN /usr/local/bin/install-plugins.sh swarm
+
 USER root
 
+RUN apt-get update && \
+    apt-get -y install apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+    add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+    $(lsb_release -cs) \
+    stable" && \
+    apt-get update && \
+    apt-get -y install docker-ce
+RUN usermod -a -G docker jenkins
+
 ARG CONDA_DIR="/opt/conda"
-ARG MIN_VER="4.7.10"
+ARG MIN_VER="4.7.12"
 ARG DS_VER="1.2.rc10_1_g1a75e2a"
 
 # Install Miniconda
