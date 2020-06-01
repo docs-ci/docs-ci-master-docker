@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t gcomoretto/doc-ci:0.0.21 .
+docker build -t gcomoretto/doc-ci:0.0.22 .
