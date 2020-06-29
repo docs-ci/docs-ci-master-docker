@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.222.4
+FROM jenkins/jenkins:2.235.1
 
 # Plugins for better UX 
 RUN /usr/local/bin/install-plugins.sh ansicolor \
@@ -20,9 +20,9 @@ RUN /usr/local/bin/install-plugins.sh job-dsl \
     && /usr/local/bin/install-plugins.sh authorize-project \
     && /usr/local/bin/install-plugins.sh snakeyaml-api
 
-USER root
-
-RUN apt-get update && apt-get -y install groovy
+#USER root
+#
+#RUN apt-get update && apt-get -y install groovy
 
 WORKDIR /var/jenkins_home
 USER jenkins
