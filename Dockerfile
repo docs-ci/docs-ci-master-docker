@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.235.1
+FROM jenkins/jenkins:2.235.2
 
 # Plugins for better UX 
 RUN /usr/local/bin/install-plugins.sh ansicolor \
@@ -18,6 +18,7 @@ RUN /usr/local/bin/install-plugins.sh job-dsl \
     && /usr/local/bin/install-plugins.sh swarm \
     && /usr/local/bin/install-plugins.sh groovy \
     && /usr/local/bin/install-plugins.sh authorize-project \
+    && /usr/local/bin/install-plugins.sh workflow-aggregator \
     && /usr/local/bin/install-plugins.sh snakeyaml-api
 
 #USER root
