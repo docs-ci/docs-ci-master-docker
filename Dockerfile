@@ -19,6 +19,7 @@ RUN /usr/local/bin/install-plugins.sh job-dsl \
     && /usr/local/bin/install-plugins.sh groovy \
     && /usr/local/bin/install-plugins.sh authorize-project \
     && /usr/local/bin/install-plugins.sh workflow-aggregator \
+    && /usr/local/bin/install-plugins.sh pipeline-model-definition \
     && /usr/local/bin/install-plugins.sh snakeyaml-api
 
 #USER root
