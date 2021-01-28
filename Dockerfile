@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.249.3
+FROM jenkins/jenkins:2.263.2
 
 # Plugins for better UX 
 RUN /usr/local/bin/install-plugins.sh ansicolor \
